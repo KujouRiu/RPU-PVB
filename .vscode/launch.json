@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "python",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${file}"
+            "args": [	
+                "--cfg","cfgs\\RobustDet_voc.yaml",
+                "--adv_type","mtd",
+                "--data_use","clean",
+                "--multi_gpu", "False",
+                "--basenet","D:\\Study\\Code\\RobustDet-master\\weights\\ssd300_mAP_77.43_v2.pth",
+                "--dataset_root","D:\\Study\\Code\\RobustDet-master\\VOCdevkit"
+            ],
+        }
+    ]
+}
