@@ -38,7 +38,7 @@ coco2017
        |-- instances_val2017.json
 ```
 
-### RobustDet
+### RPU-PVB
 We provide codes to reproduce the results in our paper.
 
 #### Training
@@ -57,17 +57,24 @@ python train_robust.py --cfg cfgs/RobustDet_coco.yaml --adv_type mtd --data_use 
 #### Evaluation
 VOC
 ```bash
-python eval_attack.py --cfg cfgs/RobustDet_voc.yaml --trained_model <path_to_your_trained_model> \
+python eval_attack.py --cfg cfgs/RobustDet_voc.yaml --trained_model RPU-PVB_VOC.pth \
     --data_use clean --adv_type cls \ # attack type, choice in [clean, cls, loc, cwat, dag]
      --dataset_root <path_to_your_VOC_root>
 ```
+You get the following results (with small deviations)
+Clean	Acls	Aloc	CWA	DAG
+73.9 	60.0 	60.9 	61.4 	62.5 
+
 
 COCO
 ```bash
-python eval_attack.py --cfg cfgs/RobustDet_coco.yaml --trained_model <path_to_your_trained_model> \
+python eval_attack.py --cfg cfgs/RobustDet_coco.yaml --trained_model RPU-PVB_COCO.pth \
     --data_use clean --adv_type cls \ # attack type, choice in [clean, cls, loc, cwat, dag]
      --dataset_root <path_to_your_COCO_root>
 ```
+You get the following results (with small deviations)
+Clean	Acls	Aloc	CWA	DAG
+36.2 	24.4 	27.0 	25.5 	26.6 
 
 ## Pretrained Models
 link：https://pan.baidu.com/s/1izE1r12NebhJKLP2GjDslw?pwd=obhh 
