@@ -42,7 +42,6 @@ coco2017
 We provide codes to reproduce the results in our paper.
 
 #### Training
-To train RobustDet model on VOC dataset:
 ```bash
 python train_robust.py --cfg cfgs/RobustDet_voc.yaml --adv_type mtd --data_use clean --multi_gpu False \
     --basenet weights/ssd300_mAP_77.43_v2.pth --dataset_root <path_to_your_VOC_root>
