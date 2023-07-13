@@ -1,5 +1,4 @@
-paper for "RPU-PVB: Robust Object Detection Based on a Unified Metric Perspective with
-Bilinear Interpolation"
+paper for "Robust Object Detection Based on a Unified Metric Perspective"
 
 
 
