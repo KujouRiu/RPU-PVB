@@ -62,7 +62,7 @@ python eval_attack.py --cfg cfgs/RobustDet_voc.yaml --trained_model RPU-PVB_VOC.
 ```
 You get the following results (with small deviations)
 Clean	Acls	Aloc	CWA	DAG
-74.7   55.5   56.7   57.1  65.5
+74.7   55.5   56.7   57.1   65.5
 ```
 
 COCO
