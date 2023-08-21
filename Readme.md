@@ -1,4 +1,4 @@
-paper for "Robust Object Detection Based on a Unified Metric Perspective"
+paper for "RPU-PVB: Robust Object Detection Based on a Unified Metric Perspective with Bilinear Interpolation"
 
 
 
@@ -62,7 +62,7 @@ python eval_attack.py --cfg cfgs/RobustDet_voc.yaml --trained_model RPU-PVB_VOC.
 ```
 You get the following results (with small deviations)
 Clean	Acls	Aloc	CWA	DAG
-74.7   55.5   56.7   57.1   65.5
+73.0   60.2   57.5   60.9   63.2
 ```
 
 COCO
@@ -74,7 +74,7 @@ python eval_attack.py --cfg cfgs/RobustDet_coco.yaml --trained_model RPU-PVB_COC
 ```
 You get the following results (with small deviations)
 Clean	Acls	Aloc	CWA	DAG
-36.2 	24.4 	27.0 	25.5 	26.6 
+36.2 	24.5 	27.1 	25.3 	26.6 
 ```
 ## Pretrained Models
 link：https://pan.baidu.com/s/1izE1r12NebhJKLP2GjDslw?pwd=obhh 
