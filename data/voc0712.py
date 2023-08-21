@@ -13,16 +13,6 @@ import cv2
 import numpy as np
 import pickle
 
-
-def get_0_1_array(array, rate=0.2):
-    '''按照数组模板生成对应的 0-1 矩阵，默认rate=0.2'''
-    zeros_num = int(array.size * rate)  # 根据0的比率来得到 0的个数
-    new_array = np.ones(array.size)  # 生成与原来模板相同的矩阵，全为1
-    new_array[:zeros_num] = 0  # 将一部分换为0
-    np.random.shuffle(new_array)  # 将0和1的顺序打乱
-    re_array = new_array.reshape(array.shape)  # 重新定义矩阵的维度，与模板相同
-    return re_array
-
 if sys.version_info[0] == 2:
     import xml.etree.cElementTree as ET
 else:
@@ -108,8 +98,6 @@ class VOCDetection(data.Dataset):
             (default: 'VOC2007')
     """
 
-
-
     def __init__(self, root,
                  image_sets=[('2007', 'trainval'), ('2012', 'trainval')],
                  transform=None, target_transform=VOCAnnotationTransform(),
@@ -154,19 +142,19 @@ class VOCDetection(data.Dataset):
 
         target = ET.parse(self._annopath % (img_id[0], img_id[2])).getroot()
         img = cv2.imread((self._imgpath if img_id[1].find('JPEG')!=-1 else self._imgpath_png) % img_id)
-
-        arr = np.ones_like(img)
-        new_arr = get_0_1_array(arr, rate=0.05)
-
-        img = img * new_arr
+        
+        
         #add = np.ones_like(img) * 0.1
-        #img = add + img
+        #img = add + img    None 
+
+        #0.2 36654
+        #0.5 36655
+        #0.9 36656
         #
-        #magnification = 0.8
-
-        #img = cv2.resize(img,dsize=None,fx=magnification,fy=magnification,interpolation=cv2.INTER_LINEAR)
-        #img = cv2.resize(img, dsize=None, fx=1/magnification, fy=1/magnification, interpolation=cv2.INTER_LINEAR)
-
+        magnification = 0.8
+        img = cv2.resize(img,dsize=None,fx=magnification,fy=magnification,interpolation=cv2.INTER_LINEAR)
+        img = cv2.resize(img, dsize=None, fx=1/magnification, fy=1/magnification, interpolation=cv2.INTER_LINEAR)
+        
         height, width, channels = img.shape
 
         if self.clean_adv_paire:
